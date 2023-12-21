@@ -8,7 +8,7 @@
     <meta name="keywords" content="E-Commerce, HTML, CSS, PHP ,JavaScript">
     <meta name="author" content="Bruce Bauer">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-/*    <link rel="stylesheet" href="assets/style/studentportfolio.css">*/
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <style>
 /*  body */
@@ -96,11 +96,88 @@ p.shift {
     from {opacity: 0;}
     to {opacity: 1;}
 }
+
+
+
+
+
+/* Navbar container */
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+  font-family: Arial;
+}
+
+/* Links inside the navbar */
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* The dropdown container */
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+/* Dropdown button */
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit; /* Important for vertical align on mobile phones */
+  margin: 0; /* Important for vertical align on mobile phones */
+}
+
+/* Add a red background color to navbar links on hover */
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+/* Add a grey background color to dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+
 </style>
 <body>
     <div id="container">
         <h1>Portfolio of Bruce Lee Bauer</h1>
-
+<!--
         <div class="tab">
             <button class="tablinks" onclick="openTab(event, 'Home')" id="defaultOpen">Profile</button>
             <button class="tablinks" onclick="openTab(event, 'Resume')">Resume</button>
@@ -111,8 +188,37 @@ p.shift {
             <button class="tablinks" onclick="openTab(event, 'CoverLetter')">Cover Letter</button>
             <button class="tablinks" onclick="openTab(event, 'Contact')">Contact</button>
         </div>
+    -->
 
-        <!-- Begin Home Section -->
+    <div class="tab">
+        <button class="tablinks" onclick="openTab(event, 'Home')" id="defaultOpen">Profile</button>
+        <button class="tablinks" onclick="openTab(event, 'Resume')">Resume</button>
+        <button class="tablinks" onclick="openTab(event, 'Skills')">Skills</button>
+        <button class="tablinks" onclick="openTab(event, 'Education')">Education</button>
+        <button class="tablinks" onclick="openTab(event, 'Accomplishments')">Accomplishments</button>
+        <button class="tablinks" onclick="openRedirect('workexamples.html')">Work Examples</button>
+        <button class="tablinks" onclick="openTab(event, 'CoverLetter')">Cover Letter</button>
+        <button class="tablinks" onclick="openTab(event, 'Contact')">Contact</button>
+    </div>
+   
+    <div class="navbar">
+        <a href="#home">Home</a>
+        <button class="tablinks" onclick="openTab(event, 'Resume')">Resume</button>
+        <a href="#news">News</a>
+        <div class="dropdown">
+        <button class="dropbtn" onclick="myFunction()">Dropdown
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content" id="myDropdown">
+          <a href="#">Link 1</a>
+          <a href="#">Link 2</a>
+          <a href="#">Link 3</a>
+        </div>
+        </div> 
+      </div>
+      
+
+    <!-- Begin Home Section -->
         <div id="Home" class="tabcontent">
               <h2>Profile of Bruce Bauer</h2>
               <p><img class="img-style-1" src="assets/images/BruceBauerSmall.jpg">Results-driven professional with extensive IT project management experience in a variety of industries. 
@@ -825,6 +931,23 @@ function openTab(evt, cityName) {
 function openRedirect(url) {
     window.location.href = url;
 }
+
+
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(e) {
+  if (!e.target.matches('.dropbtn')) {
+  var myDropdown = document.getElementById("myDropdown");
+    if (myDropdown.classList.contains('show')) {
+      myDropdown.classList.remove('show');
+    }
+  }
+
 
 </script>
 </body>
